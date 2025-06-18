@@ -1,0 +1,716 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+    <meta charset="utf-8" />
+    <title>Dashboard | Hando - Responsive Admin Dashboard Template</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+       name="description"
+      content="A fully featured admin theme which can be used to build CRM, CMS, etc."
+    />
+    <meta name="author" content="Zoyothemes" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+    <!-- App favicon -->
+    <link rel="shortcut icon" href="assets/images/favicon.ico" />
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@lovable_dev">
+    <meta name="twitter:image" content="https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/e8b38e77-46c0-4350-adad-af11b5c02a9b/id-preview-6e5ab920--5cd8ec92-646f-4443-956e-166c9e6d1957.lovable.app-1749892168927.png">
+    <script type="module" crossorigin="" src="/assets/index-D3macd55.js"></script>
+    <!-- <link rel="stylesheet" crossorigin="" href="/assets/index-BPt0IKYq.css"> -->
+
+    <!-- App css -->
+    <link
+      href="assets/css/app.min.css"
+      rel="stylesheet"
+      type="text/css"
+      id="app-style"
+    />
+
+    <!-- Icons -->
+    <link href="assets/css/icons.min.css" rel="stylesheet" type="text/css" />
+
+    <script src="assets/js/head.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+    />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Hind:wght@300;400;500;600;700&family=Noto+Sans:ital,wght@0,100..900;1,100..900&family=Tiro+Devanagari+Hindi:ital@0;1&display=swap" rel="stylesheet">
+ 
+    <style>
+      
+      body {
+          font-family: "Tiro Devanagari Hindi", serif;
+      }
+	  .card-custom {
+        border-radius: 1rem;
+        padding: 1rem;
+        background: white;
+        height: 100%;
+
+    }
+
+    .status-badge {
+        border-radius: 1rem;
+        padding: 0.3rem 1rem;
+        font-size: 0.8rem;
+        font-weight: 600;
+    }
+
+    .nav-pills .nav-link {
+        color: black;
+    }
+
+    .nav-link {
+        margin: 2px;
+    }
+
+
+    .nav-pills .nav-link.active {
+        color: white !important;
+        background-color: #0d6efd;
+    }
+
+    .cards-shadow {
+        border-radius: 10px;
+    }
+
+    .icon {
+        padding: 5px 20px;
+        border-radius: 14px;
+    }
+
+    .icon-size {
+        font-size: small;
+        font-weight: 500;
+    }
+
+    .icon2 {
+        padding: 7px 14px;
+        border-radius: 13px;
+    }
+
+    @media (min-width:1024px) {
+        .media {
+            margin-left: 110px;
+            margin-right: 110px;
+        }
+
+    }
+    </style>
+	 </head>
+  <!-- body start -->
+  <body data-menu-color="light" data-sidebar="default">
+    <!-- Begin page -->
+    <div id="app-layout">
+      <!-- Topbar Start -->
+      <div class="topbar-custom">
+            <div class="container-fluid">
+               <div class="d-flex justify-content-between">
+                  <ul class="list-unstyled topnav-menu mb-0 d-flex align-items-center">
+                     <li>
+                        <button class="button-toggle-menu nav-link">
+                        <i data-feather="menu" class="noti-icon"></i>
+                        </button>
+                     </li>
+                     
+                  </ul>
+                  <ul class="list-unstyled topnav-menu mb-0 d-flex align-items-center">
+                     <li class="d-none d-lg-block">
+                        <form class="app-search d-none d-md-block me-auto">
+                           <div class="position-relative topbar-search">
+                              <input type="text" class="form-control ps-4" placeholder="Search..." />
+                              <i class="mdi mdi-magnify fs-16 position-absolute text-muted top-50 translate-middle-y ms-2"></i>
+                           </div>
+                        </form>
+                     </li>
+                     <!-- Button Trigger Customizer Offcanvas -->
+                     <li class="d-none d-sm-flex">
+                        <button type="button" class="btn nav-link" data-toggle="fullscreen">
+                        <i data-feather="maximize" class="align-middle fullscreen noti-icon"></i>
+                        </button>
+                     </li>
+                     <!-- Light/Dark Mode Button Themes -->
+                     <li class="d-none d-sm-flex">
+                        <button type="button" class="btn nav-link" id="light-dark-mode">
+                        <i data-feather="moon" class="align-middle dark-mode"></i>
+                        <i data-feather="sun" class="align-middle light-mode"></i>
+                        </button>
+                     </li>
+                     <li class="dropdown notification-list topbar-dropdown">
+                        <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="false" aria-expanded="false">
+                        <i data-feather="bell" class="noti-icon"></i>
+                        <span class="badge bg-danger rounded-circle noti-icon-badge">9</span>
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-end dropdown-lg">
+                           <!-- item-->
+                           <div class="dropdown-item noti-title">
+                              <h5 class="m-0">
+                                 <span class="float-end"><a href="" class="text-dark"><small>Clear All</small></a></span>Notification
+                              </h5>
+                           </div>
+                           <div class="noti-scroll" data-simplebar>
+                              <!-- item-->
+                              <a href="javascript:void(0);"
+                                 class="dropdown-item notify-item text-muted link-primary active">
+                                 <div class="notify-icon">
+                                    <img src="/assets/images/users/user-12.jpg" class="img-fluid rounded-circle" alt="" />
+                                 </div>
+                                 <div class="d-flex align-items-center justify-content-between">
+                                    <p class="notify-details">Carl Steadham</p>
+                                    <small class="text-muted">5 min ago</small>
+                                 </div>
+                                 <p class="mb-0 user-msg">
+                                    <small class="fs-14">Completed <span class="text-reset">Improve workflow in Figma</span></small>
+                                 </p>
+                              </a>
+                              <!-- item-->
+                              <a href="javascript:void(0);" class="dropdown-item notify-item text-muted link-primary">
+                                 <div class="notify-icon">
+                                    <img src="/assets/images/users/user-2.jpg" class="img-fluid rounded-circle" alt="" />
+                                 </div>
+                                 <div class="notify-content">
+                                    <div class="d-flex align-items-center justify-content-between">
+                                       <p class="notify-details">Olivia McGuire</p>
+                                       <small class="text-muted">1 min ago</small>
+                                    </div>
+                                    <div class="d-flex mt-2 align-items-center">
+                                       <div class="notify-sub-icon">
+                                          <i class="mdi mdi-download-box text-dark"></i>
+                                       </div>
+                                       <div>
+                                          <p class="notify-details mb-0">dark-themes.zip</p>
+                                          <small class="text-muted">2.4 MB</small>
+                                       </div>
+                                    </div>
+                                 </div>
+                              </a>
+                              <!-- item-->
+                              <a href="javascript:void(0);" class="dropdown-item notify-item text-muted link-primary">
+                                 <div class="notify-icon">
+                                    <img src="/assets/images/users/user-3.jpg" class="img-fluid rounded-circle" alt="" />
+                                 </div>
+                                 <div class="notify-content">
+                                    <div class="d-flex align-items-center justify-content-between">
+                                       <p class="notify-details">Travis Williams</p>
+                                       <small class="text-muted">7 min ago</small>
+                                    </div>
+                                    <p class="noti-mentioned p-2 rounded-2 mb-0 mt-2">
+                                       <span class="text-primary">@Patryk</span> Please make sure that you're....
+                                    </p>
+                                 </div>
+                              </a>
+                              <!-- item-->
+                              <a href="javascript:void(0);" class="dropdown-item notify-item text-muted link-primary">
+                                 <div class="notify-icon">
+                                    <img src="/assets/images/users/user-8.jpg" class="img-fluid rounded-circle" alt="" />
+                                 </div>
+                                 <div class="d-flex align-items-center justify-content-between">
+                                    <p class="notify-details">Violette Lasky</p>
+                                    <small class="text-muted">5 min ago</small>
+                                 </div>
+                                 <p class="mb-0 user-msg">
+                                    <small class="fs-14">Completed <span class="text-reset">Create new components</span></small>
+                                 </p>
+                              </a>
+                              <!-- item-->
+                              <a href="javascript:void(0);" class="dropdown-item notify-item text-muted link-primary">
+                                 <div class="notify-icon">
+                                    <img src="/assets/images/users/user-5.jpg" class="img-fluid rounded-circle" alt="" />
+                                 </div>
+                                 <div class="d-flex align-items-center justify-content-between">
+                                    <p class="notify-details">Ralph Edwards</p>
+                                    <small class="text-muted">5 min ago</small>
+                                 </div>
+                                 <p class="mb-0 user-msg">
+                                    <small class="fs-14">Completed<span class="text-reset">Improve workflow in React</span></small>
+                                 </p>
+                              </a>
+                              <!-- item-->
+                              <a href="javascript:void(0);" class="dropdown-item notify-item text-muted link-primary">
+                                 <div class="notify-icon">
+                                    <img src="/assets/images/users/user-6.jpg" class="img-fluid rounded-circle" alt="" />
+                                 </div>
+                                 <div class="notify-content">
+                                    <div class="d-flex align-items-center justify-content-between">
+                                       <p class="notify-details">Jocab jones</p>
+                                       <small class="text-muted">7 min ago</small>
+                                    </div>
+                                    <p class="noti-mentioned p-2 rounded-2 mb-0 mt-2">
+                                       <span class="text-reset">@Patryk</span> Please make sure that you're....
+                                    </p>
+                                 </div>
+                              </a>
+                           </div>
+                           <!-- All-->
+                           <a href="javascript:void(0);" class="dropdown-item text-center text-primary notify-item notify-all">View all
+                           <i class="fe-arrow-right"></i>
+                           </a>
+                        </div>
+                     </li>
+                     <!-- User Dropdown -->
+                     <li class="dropdown notification-list topbar-dropdown">
+                        <a class="nav-link dropdown-toggle nav-user me-0" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="false" aria-expanded="false">
+                        <img src="./assets/images/users/user-13.jpg" alt="user-image" class="rounded-circle" />
+                        <span class="pro-user-name ms-1">Administrator <i class="mdi mdi-chevron-down"></i></span>
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-end profile-dropdown">
+                           <!-- item-->
+                           <div class="dropdown-header noti-title">
+                              <h6 class="text-overflow m-0">Welcome !</h6>
+                           </div>
+                           <!-- item-->
+                           <a href="pages-profile.html" class="dropdown-item notify-item">
+                           <i class="mdi mdi-account-circle-outline fs-16 align-middle"></i>
+                           <span>My Account</span>
+                           </a>
+                           <!-- item-->
+                           <a href="auth-lock-screen.html" class="dropdown-item notify-item">
+                           <i class="mdi mdi-lock-outline fs-16 align-middle"></i>
+                           <span>Lock Screen</span>
+                           </a>
+                           <div class="dropdown-divider"></div>
+                           <!-- item-->
+                           <a href="auth-logout.html" class="dropdown-item notify-item">
+                           <i class="mdi mdi-location-exit fs-16 align-middle"></i>
+                           <span>Logout</span>
+                           </a>
+                        </div>
+                     </li>
+                  </ul>
+               </div>
+            </div>
+         </div> 
+         <!-- end Topbar -->
+         <!-- Left Sidebar Start -->
+         <div class="app-sidebar-menu">
+            <div class="h-100" data-simplebar>
+               <!--- Sidemenu -->
+               <div id="sidebar-menu">
+                  <div class="logo-box d-flex align-items-center gap-3">
+                     <img src="./assets/webimages/rahat_logo_2.png" alt="" style="height: 58px; width: 59px;">
+                     <h6 style="margin-top: 10px;">राहत आयुक्त कार्यालय उत्तर प्रदेश सरकार</h6>
+                  </div>
+                  <ul id="side-menu">
+                     <li class="menu-title">Menu</li>
+                     <li>
+                        <a href="#sidebarDashboards" data-bs-toggle="collapse">
+                        <i data-feather="home"></i>
+                        <span> Dashboard </span>
+                        <span class="menu-arrow"></span>
+                        </a>
+                        <div class="collapse" id="sidebarDashboards">
+                           <ul class="nav-second-level">
+                              <li>
+                                 <a href="./Anudaan.html" class="tp-link">अनुदान</a>
+                              </li>
+                           </ul>
+                        </div>
+                     </li>
+                     </div>
+               <!-- End Sidebar -->
+               <div class="clearfix"></div>
+            </div>
+         </div>
+      <!-- Left Sidebar End -->
+
+      <!-- ============================================================== -->
+      <!-- Start Page Content here -->
+      <!-- ============================================================== -->
+
+      <div class="content-page">
+        <div class="content">
+          <!-- Start Content-->
+		   <div class="container-fluid my-4">
+				<div class="container my-4">
+        <div class="row g-3">
+            
+
+            <!-- Card 1: Total Works -->
+            <div class="col-md-3">
+                <div class="card  p-3 mb-2 bg-white cards-shadow ">
+                    <div class="d-flex justify-content-between align-items-center">
+                        <h6>Total Works</h6>
+                        <div class="bg-primary text-white icon2">
+                            <i class="fa-solid fa-chart-line"></i>
+                        </div>
+                    </div>
+                    <h3 class="fw-bold mt-2">156</h3>
+                    <div class="d-flex justify-content-between align-items-center mt-2">
+                        <small class="fw-bold">+12 this month</small>
+                        <div class="bg-dark text-white icon">
+                            <i class="fa-solid fa-arrow-up-right-from-square"></i>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 2: Completed -->
+            <div class="col-md-3">
+                <div class="card  p-3 mb-2 bg-white cards-shadow" >
+                    <div class="d-flex justify-content-between align-items-center">
+                        <h6>Completed</h6>
+                        <div class=" text-white icon2"style="background-color: #0fe50f ;">
+                            <i class="fa-solid fa-calendar-check"></i>
+                        </div>
+                    </div>
+                    <h3 class="fw-bold mt-2">89</h3>
+                    <div class="d-flex justify-content-between align-items-center mt-2">
+                        <small class="fw-bold">68% completion rate</small>
+                        <div class="bg-dark text-white icon">
+                            <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 3: In Progress -->
+            <div class="col-md-3">
+                <div class="card  p-3 mb-2 bg-white cards-shadow">
+                    <div class="d-flex justify-content-between align-items-center">
+                        <h6>In Progress</h6>
+                        <div class="bg-warning text-white icon2">
+                            <i class="fa-solid fa-clock"></i>
+                        </div>
+                    </div>
+                    <h3 class="fw-bold mt-2">45</h3>
+                    <div class="d-flex justify-content-between align-items-center mt-2">
+                        <small class="fw-bold">32% of total works</small>
+                        <div class="bg-primary text-dark icon">
+                            <i class="fa-solid fa-arrow-up-right-from-square"></i>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 4: Delayed -->
+            <div class="col-md-3">
+                <div class="card  p-3 mb-2 bg-white cards-shadow">
+                    <div class="d-flex justify-content-between align-items-center">
+                        <h6>Delayed</h6>
+                        <div class="bg-danger text-white icon2">
+                            <i class="fa-solid fa-map-pin"></i>
+                        </div>
+                    </div>
+                    <h3 class="fw-bold mt-2">22</h3>
+                    <div class="d-flex justify-content-between align-items-center mt-2">
+                        <small class="fw-bold">Avg delay: 18 days</small>
+                        <div class="bg-danger text-white icon">
+                            <i class="fa-solid fa-arrow-up-right-from-square"></i>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+			<div class="col-md-3">
+                <div class="card  p-3 mb-2 bg-white cards-shadow ">
+                    <div class="d-flex justify-content-between align-items-center">
+                        <h6>Flood Areas</h6>
+                        <div class=" text-white icon2" style="background-color: #8585db;">
+                            <i class="fa-solid fa-water"></i>
+                        </div>
+                    </div>
+                    <h3 class="fw-bold mt-2">8</h3>
+                    <div class="d-flex justify-content-between align-items-center mt-2">
+                        <small class="fw-bold">Monitoring Active</small>
+                        <div class="bg-primary text-white icon">
+                            <i class="fa-solid fa-arrow-up-right-from-square"></i>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 2: Completed -->
+            <div class="col-md-3">
+                <div class="card  p-3 mb-2 bg-white cards-shadow">
+                    <div class="d-flex justify-content-between align-items-center">
+                        <h6>Heat Wave Alerts</h6>
+                        <div class="bg-success text-white icon2">
+                            <i class="fa-solid fa-temperature-high"></i>
+                        </div>
+                    </div>
+                    <h3 class="fw-bold mt-2">12</h3>
+                    <div class="d-flex justify-content-between align-items-center mt-2">
+                        <small class="fw-bold">3 districts affected</small>
+                        <div class="bg-dark text-white icon">
+                            <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 3: In Progress -->
+            <div class="col-md-3">
+                <div class="card  p-3 mb-2 bg-white cards-shadow">
+                    <div class="d-flex justify-content-between align-items-center">
+                        <h6>Water Supply</h6>
+                        <div class="bg-warning text-white icon2">
+                            <i class="fa-solid fa-hand-holding-droplet"></i>
+                        </div>
+                    </div>
+                    <h3 class="fw-bold mt-2">94%</h3>
+                    <div class="d-flex justify-content-between align-items-center mt-2">
+                        <small class="fw-bold">coverage in districts</small>
+                        <div class="bg-dark text-white icon">
+                            <i class="fa-solid fa-arrow-up-right-from-square"></i>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 4: Delayed -->
+            <div class="col-md-3">
+                <div class="card  p-3 mb-2 bg-white cards-shadow">
+                    <div class="d-flex justify-content-between align-items-center">
+                        <h6>Emergency Response</h6>
+                        <div class="bg-danger text-white icon2">
+                            <i class="fa-solid fa-kit-medical"></i>
+                        </div>
+                    </div>
+                    <h3 class="fw-bold mt-2">24/7</h3>
+                    <div class="d-flex justify-content-between align-items-center mt-2">
+                        <small class="fw-bold">Teams deployed</small>
+                        <div class="bg-primary text-white icon">
+                            <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+    <!-- ================== -->
+
+
+    <div class="bg-white d-flex justify-content-center media justify-content-around gap-2 px-2 py-2 rounded-3 flex-wrap" style="margin: 0px;">
+        <ul class="nav nav-pills mb-1 d-flex flex-wrap gap-lg-0 gap-md-3 justify-content-center justify-content-md-around"
+            id="pills-tab" role="tablist">
+
+            <li class="nav-item" role="presentation">
+                <button class="nav-link active text-dark border-black px-3 px-md-4" id="pills-dashboard-tab"
+                    data-bs-toggle="pill" data-bs-target="#pills-dashboard" type="button" role="tab"
+                    aria-controls="pills-dashboard" aria-selected="true">
+                    Dashboard
+                </button>
+            </li>
+
+            <li class="nav-item" role="presentation">
+                <button class="nav-link text-dark border-black px-3 px-md-4" id="pills-work-tab" data-bs-toggle="pill"
+                    data-bs-target="#pills-work" type="button" role="tab" aria-controls="pills-work"
+                    aria-selected="false">
+                    Work Management
+                </button>
+            </li>
+
+            <li class="nav-item" role="presentation">
+                <button class="nav-link text-dark border-black px-3 px-md-4" id="pills-analytics-tab"
+                    data-bs-toggle="pill" data-bs-target="#pills-analytics" type="button" role="tab"
+                    aria-controls="pills-analytics" aria-selected="false">
+                    Progress Analytics
+                </button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link text-dark border-black px-3 px-md-4" id="pills-analytics-tab"
+                    data-bs-toggle="pill" data-bs-target="#pills-analytics" type="button" role="tab"
+                    aria-controls="pills-analytics" aria-selected="false">
+                    Progress Analytics
+                </button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link text-dark border-black px-3 px-md-4" id="pills-analytics-tab"
+                    data-bs-toggle="pill" data-bs-target="#pills-analytics" type="button" role="tab"
+                    aria-controls="pills-analytics" aria-selected="false">
+                    Progress Analytics
+                </button>
+            </li>
+
+            <li class="nav-item" role="presentation">
+                <button class="nav-link text-dark border-black px-3 px-md-4" id="pills-delay-tab" data-bs-toggle="pill"
+                    data-bs-target="#pills-delay" type="button" role="tab" aria-controls="pills-delay"
+                    aria-selected="false">
+                    Delay Tracking
+                </button>
+            </li>
+
+            <li class="nav-item" role="presentation">
+                <button class="nav-link text-dark border-black px-3 px-md-4" id="pills-photo-tab" data-bs-toggle="pill"
+                    data-bs-target="#pills-photo" type="button" role="tab" aria-controls="pills-photo"
+                    aria-selected="false">
+                    Photo Upload
+                </button>
+            </li>
+
+        </ul>
+    </div>
+
+
+    <div class="container mt-5">
+        <div class="row g-4">
+
+            <!-- Monthly Progress -->
+            <div class="col-md-3">
+                <div class="card-custom">
+                    <h5><strong>Monthly Progress</strong></h5>
+                    <p class="text-muted">Works completion trends over the last 6 months</p>
+                    <div>
+
+                        <canvas id="barChart" style="width: 260px; height: 305px;"></canvas>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Status Distribution -->
+            <div class="col-md-3">
+                <div class="card-custom">
+                    <h5><strong>Status Distribution</strong></h5>
+                    <p class="text-muted">Current status of all works</p>
+                    <canvas id="doughnutChart"></canvas>
+                </div>
+            </div>
+
+            <!-- Recent Activities -->
+            <div class="col-md-6">
+                <div class="card-custom">
+                    <h5><strong><i class="bi bi-clock-history"></i> Recent Activities</strong></h5>
+
+                    <div class="bg-success-subtle p-2 mt-3 mb-3 rounded-3" style="background-color: #fdecea;">
+                        <div><strong>Road Construction - Phase 2</strong>
+                            <span class="status-badge bg-danger  mt-2 text-white float-end">High Priority</span>
+                            <div class="text-muted">Status updated to 85% complete</div>
+                        </div>
+
+
+
+
+                    </div>
+
+                    <div class="bg-danger-subtle p-2 mb-3 rounded-3" style="background-color:#f2f3f4;">
+                        <div><strong>Flood Alert - Gorakhpur</strong>
+                            <span class="status-badge bg-danger mt-2 text-white float-end">High Priority</span>
+                            <div class="text-muted">Water level rising – Relief camps activated </div>
+
+                        </div>
+                    </div>
+
+                    <div class="bg-warning-subtle p-2 rounded mb-3" style="background-color: #cdf7dc;">
+                        <div><strong>Heat Wave Alert - Allahabad</strong>
+                            <span class="status-badge mt-2 bg-warning text-white float-end px-4">Active</span>
+                            <div class="text-muted">Temperature 47°C – Cooling centers opened</div>
+                        </div>
+
+                    </div>
+
+                    <div class="bg-primary-subtle p-2 rounded" style="background-color:rgb(247, 232, 187)">
+                        <div><strong>Water Supply - Kanpur</strong>
+                            <span class="status-badge mt-2 bg-warning text-white float-end">In Progress</span>
+                            <div class="text-muted">8 new tankers deployed for coverage improvement</div>
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+		   </div>
+			
+	
+        <!-- content -->
+
+        
+      </div>
+      
+    
+        </div>
+      </div>
+    <!-- END wrapper -->
+	<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
+            integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p"
+            crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"
+            integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF"
+            crossorigin="anonymous"></script>
+    <!-- Vendor -->
+    <script src="assets/libs/jquery/jquery.min.js"></script>
+
+    <script src="assets/libs/simplebar/simplebar.min.js"></script>
+    <script src="assets/libs/node-waves/waves.min.js"></script>
+    <script src="assets/libs/waypoints/lib/jquery.waypoints.min.js"></script>
+    <script src="assets/libs/jquery.counterup/jquery.counterup.min.js"></script>
+    <script src="assets/libs/feather-icons/feather.min.js"></script>
+
+     <!-- Apexcharts JS -->
+
+    <!-- Widgets Init Js -->
+    <!-- App js-->
+    <script src="assets/js/app.js"></script>
+
+        <script>
+            // Bar Chart
+            const ctxBar = document.getElementById('barChart');
+            new Chart(ctxBar, {
+                type: 'bar',
+                data: {
+                    labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'],
+                    datasets: [
+                        {
+                            label: 'Road',
+                            data: [5, 12, 10, 19, 25, 22],
+                            backgroundColor: '#22c55e'
+                        },
+                        {
+                            label: 'Water',
+                            data: [8, 9, 15, 10, 18, 20],
+                            backgroundColor: '#f97316'
+                        },
+                        {
+                            label: 'Alerts',
+                            data: [4, 6, 7, 8, 9, 10],
+                            backgroundColor: '#ef4444'
+                        }
+                    ]
+                },
+                options: {
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            ticks: {
+                                stepSize: 7
+                            }
+                        }
+                    }
+                }
+            });
+
+            // Doughnut Chart
+            const ctxDoughnut = document.getElementById('doughnutChart');
+            new Chart(ctxDoughnut, {
+                type: 'doughnut',
+                data: {
+                    labels: ['Completed', 'In Progress', 'Delayed'],
+                    datasets: [{
+                        label: 'Status',
+                        data: [45, 35, 20],
+                        backgroundColor: ['#22c55e', '#f97316', '#ef4444'],
+                        borderWidth: 0
+                    }]
+                },
+                options: {
+                    cutout: '65%',
+                    plugins: {
+                        legend: { position: 'bottom' }
+                    }
+                }
+            });
+        </script>
+  </body>
+</html>
