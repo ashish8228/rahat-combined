@@ -267,7 +267,7 @@
                         </li>
 
                         <li class="nav-item ">
-                            <a href="./deathform.html" class="leftbar-design">
+                            <a href="./disableform.html" class="leftbar-design">
                                 <i class="fa-solid fa-file-lines"></i>
                                 <span class="span-class-link"> New Application <span class="hindi-text">नया
                                         आवेदन</span></span>
@@ -338,10 +338,10 @@
                 <div class="container my-sm-5 my-lg-0 ">
                     <div class="designforform shadow-sm mt-3">
                         <h2 class=" text-center">
-                            <b>मृत्यु रिपोर्टिंग फॉर्म</b><br />
-                            <small class="text-muted">Death Reporting Form</small>
+                            <b>दिव्यांग व्यक्ति के लिए फॉर्म</b><br />
+                            <small class="text-muted">Form for disabled Person</small>
                         </h2>
-                        <h3 class="text-center mb-4">राहत आयुक्त कार्यालय के लिए मृत्यु की रिपोर्ट करने हेतु फॉर्म भरें
+                        <h3 class="text-center mb-4">राहत आयुक्त कार्यालय के लिए दिव्यांग व्यक्ति के लिए फॉर्म भरें
                         </h3>
                         <form>
                             <!-- Basic Information -->
@@ -360,10 +360,10 @@
                                         </div>
                                         <div class="col-md-6">
                                             <label for="deceasedName" class="form-label">
-                                                <b>Name of Deceased</b> / मृतक का नाम *
+                                                <b>Name of disabled person</b> / दिव्यांग व्यक्ति का नाम *
                                             </label>
                                             <input type="text" class="form-control" id="deceasedName"
-                                                placeholder="Enter deceased name" required />
+                                                placeholder="Enter disabled person name" required />
                                         </div>
                                         <div class="col-md-6">
                                             <label for="fatherName" class="form-label">
@@ -400,32 +400,32 @@
                                                 </div>
                                             </div>
                                         </div>
-
-                                        <div class="col-md-4">
-                                            <label for="dateOfDeath" class="form-label">
-                                                <b>Date of Death</b> / मृत्यु की तिथि *
-                                            </label>
-                                            <input type="date" class="form-control" id="dateOfDeath" required />
-                                        </div>
-                                        <div class="col-md-4">
-                                            <label for="timeOfDeath" class="form-label">
-                                                <b>Time of Death</b> / मृत्यु का समय
-                                            </label>
-                                            <input type="time" class="form-control" id="timeOfDeath" />
-                                        </div>
-                                        <div class="col-md-4">
+                                        <div class="col-md-6">
                                             <label for="age" class="form-label">
                                                 <b>Age</b> / आयु *
                                             </label>
                                             <input type="number" class="form-control" id="age" placeholder="Enter age"
                                                 required />
                                         </div>
+
+                                        <div class="col-md-6">
+                                            <label for="disable" class="form-label">
+                                                <b>date of disability
+                                                </b> / दिव्यांगता की तिथि
+                                            </label>
+                                            <input type="date" class="form-control" id="disable"
+                                                placeholder="Enter age" />
+                                        </div>
+
+
+
+
                                         <div class="card-header">
-                                            <h4><b>Death Details / मृत्यु का विवरण</b></h4>
+                                            <h4><b>Disability Details / दिव्यांगता का विवरण</b></h4>
                                         </div>
                                         <div class="col-md-6">
                                             <label for="causeOfDeath" class="form-label">
-                                                <b>Cause of Death</b> / मृत्यु का कारण *
+                                                <b>Cause of disability</b> / दिव्यांगता का कारण*
                                             </label>
                                             <select class="form-select" id="causeOfDeath" required>
                                                 <option value="">Select cause of death</option>
@@ -470,7 +470,7 @@
                                         </div>
                                         <div class="col-md-6">
                                             <label for="grantDetails" class="form-label">
-                                                Rate of Damage Grant / क्षति अनुदान की दर
+                                                <b>Rate of Damage Grant</b> / क्षति अनुदान की दर
                                             </label>
                                             <input type="text" class="form-control" id="grantDetails"
                                                 placeholder="Enter Damage Grant Type" />
@@ -602,7 +602,6 @@
                                             <input type="text" class="form-control" id="tehsil"
                                                 placeholder="Enter Block" required>
                                         </div>
-
                                         <div class="col-12">
                                             <label for="address" class="form-label">
                                                 <b>Address</b> / पता
@@ -614,9 +613,9 @@
                                         <div class="card-header">
                                             <h4><b>Document Uploads / दस्तावेज़ अपलोड</b></h4>
                                         </div>
-                                        <div class="col-md-4">
+                                        <div class="col-md-6">
                                             <label for="photo" class="form-label">
-                                                <b>Upload photo of the deceased</b> / मृतक का फोटो अपलोड करें
+                                                <b>Upload photo of the disability</b> / दिव्यांगता की फोटो अपलोड करें
                                             </label>
                                             <div class="btn btn-light w-100 d-flex align-items-center justify-content-center gap-2 p-4 dropbox-btn"
                                                 onclick="document.getElementById('photo').click();">
@@ -627,20 +626,11 @@
                                         </div>
 
 
-                                        <div class="col-md-4">
-                                            <label for="panchanama" class="form-label">
-                                                <b>Upload Panchnama report</b> / पंचनामा रिपोर्ट अपलोड करें
-                                            </label>
-                                            <div class="btn btn-light w-100 d-flex align-items-center justify-content-center gap-2 p-4 dropbox-btn"
-                                                onclick="document.getElementById('photo').click();">
-                                                <i class="fa-solid fa-file-lines fa-lg"></i> Click to upload Document
-                                            </div>
-                                            <input class="form-control d-none" type="file" id="photo"
-                                                accept="image/*,.pdf" />
-                                        </div>
-                                        <div class="col-md-4">
+
+                                        <div class="col-md-6">
                                             <label for="postmortem" class="form-label">
-                                                <b>Upload post mortem report</b> / पोस्टमार्टम रिपोर्ट अपलोड करें
+                                                <b>Upload Disability Certificate
+                                                </b> / दिव्यांगता प्रमाण-पत्र अपलोड करें
                                             </label>
                                             <div class="btn btn-light w-100 d-flex align-items-center justify-content-center gap-2 p-4 dropbox-btn"
                                                 onclick="document.getElementById('photo').click();">

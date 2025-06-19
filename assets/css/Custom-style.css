@@ -89,6 +89,7 @@ body {
     display: flex !important;
     align-items: center;
     gap: 8px;
+    text-decoration: none;
 }
 
 .span-class-link {
@@ -110,10 +111,75 @@ body {
     background: #007bff !important;
     color: white !important;
 }
+#side-menu .nav-item.active{
+    background-color: #007bff !important;
+    color: white !important;
 
+}
+#sidebar-menu .menuitem-active .active, #sidebar-menu .menuitem-active>a{
+    text-decoration: none !important;
+    color:rgb(255, 255, 255) !important;
+     background-color: #007bff !important;
+     border-radius: 5px !important;
+}
 .nav-menu .nav-item.active {
 
     background: #007bff !important;
     color: white !important;
+    border-radius: 5px;
 
 }
+#sidebar-menu{
+    padding-top: 10px;
+}
+#sidebar-menu>ul>li>a{
+    text-decoration: none !important;
+}
+/* css for popup  */
+.section-title {
+      font-weight: 600;
+      font-size: 18px;
+    }
+
+    .badge-stage {
+      font-size: 12px;
+      padding: 5px 10px;
+    }
+
+    .status-complete {
+      background-color: #28a745;
+      color: white;
+    }
+
+    .status-pending {
+      background-color: #ffc107;
+      color: black;
+    }
+
+    .status-progress {
+      background-color: #0dcaf0;
+      color: black;
+    }
+
+    .timeline-step {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .timeline-step .step-icon {
+      font-size: 1.2rem;
+    }
+
+    .timeline-step .step-status {
+      flex-grow: 1;
+    }
+
+    .timeline-step .step-date {
+      font-size: 0.875rem;
+      color: #6c757d;
+    }
+
+    .btn-view {
+      width: 100%;
+    }

@@ -16,10 +16,283 @@
    <link href="/assets/css/icons.min.css" rel="stylesheet" type="text/css" />
    <script src="/assets/js/head.js"></script>
    <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Hind:wght@300;400;500;600;700&family=Noto+Sans:ital,wght@0,100..900;1,100..900&family=Tiro+Devanagari+Hindi:ital@0;1&display=swap" rel="stylesheet">
+   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+   <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Hind:wght@300;400;500;600;700&family=Noto+Sans:ital,wght@0,100..900;1,100..900&family=Tiro+Devanagari+Hindi:ital@0;1&display=swap"
+      rel="stylesheet">
    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
    <link rel="stylesheet" href="/assets/css/Custom-style.css">
+   <style>
+      body {
+         font-family: 'Segoe UI', sans-serif;
+      }
+
+      /* ────────────────  STAT CARDS  ──────────────── */
+      .stat-card {
+         border-radius: 12px;
+         box-shadow: 0 0 0 rgba(0, 0, 0, 0.1);
+         transition: all .3s ease;
+         position: relative;
+         padding: 20px;
+      }
+
+      .stat-card:hover {
+         box-shadow: 0 4px 20px rgba(0, 0, 0, .08);
+         transform: translateY(-2px);
+      }
+
+      .stat-icon {
+         position: absolute;
+         top: 16px;
+         right: 16px;
+         font-size: 20px;
+         color: #6c757d;
+      }
+
+      .stat-number {
+         font-size: 1.8rem;
+         font-weight: 700;
+      }
+
+      .stat-hindi {
+         font-size: .9rem;
+         color: #6c757d;
+         margin-top: -4px;
+      }
+
+      .stat-badge {
+         font-size: .75rem;
+         background: #f1f5fb;
+         color: #000;
+         border-radius: 999px;
+         padding: 5px 10px;
+         margin-top: 10px;
+         display: inline-block;
+      }
+
+      html.dark .stat-badge {
+         background: #2a2a2a;
+         /* dark grey background */
+         color: #e0e0e0;
+         /* light text */
+      }
+
+      /* ────────────────  TABS  ──────────────── */
+      .tabs {
+         background: #aeceff;
+         border-radius: 10px;
+         padding: 5px;
+         display: flex;
+         gap: 5px;
+         justify-content: space-between;
+      }
+
+      .tabs .tab-link {
+         flex: 1;
+         border: none;
+         background: transparent;
+         color: #5a7184;
+         font-weight: 500;
+         padding: 10px 0;
+         border-radius: 8px;
+         transition: .3s;
+      }
+
+      .tabs .tab-link.active {
+         background: #d6d6d6;
+         box-shadow: 0 1px 4px rgba(0, 0, 0, .1);
+         color: #000000;
+      }
+
+      /* ────────────────  CHART CARDS  ──────────────── */
+      .chart-card {
+         border-radius: 12px;
+         box-shadow: 0 1px 4px rgba(0, 0, 0, .1);
+         padding: 1rem;
+         display: flex;
+         flex-direction: column;
+         min-height: 360px;
+      }
+
+      .chart-card h6 {
+         margin-bottom: 1rem;
+         font-weight: 600;
+      }
+
+      .chart-card canvas {
+         width: 100% !important;
+         height: auto !important;
+         max-height: 280px;
+      }
+
+      /* Pie specific wrapper to centre chart */
+      .pie-wrapper {
+         display: flex;
+         justify-content: center;
+         align-items: center;
+         height: 280px;
+      }
+
+      /* Hide tabs by default */
+      .tab-content.d-none {
+         display: none !important;
+      }
+   </style>
+   <style>
+      .stage-card {
+         border: 1px solid #e2e8f0;
+         border-radius: 12px;
+         padding: 15px 20px;
+         margin-bottom: 12px;
+         display: flex;
+         align-items: center;
+         justify-content: space-between;
+      }
+
+      .stage-index {
+         background-color: #e9f1ff;
+         border-radius: 50%;
+         width: 36px;
+         height: 36px;
+         display: flex;
+         align-items: center;
+         justify-content: center;
+         font-weight: bold;
+         color: #2b6cb0;
+      }
+
+      .stage-labels {
+         flex: 1;
+         margin-left: 15px;
+      }
+
+      .stage-labels .title {
+         font-weight: 600;
+         font-size: 1rem;
+      }
+
+      .status-box {
+         text-align: center;
+         margin-right: 20px;
+      }
+
+      .value {
+         font-weight: 600;
+         font-size: 16px;
+         line-height: 1.2;
+      }
+
+      .pending .value {
+         color: #f6c23e;
+      }
+
+      .delayed .value {
+         color: #e74a3b;
+      }
+
+      .label {
+         font-size: 13px;
+         color: #6c757d;
+      }
+
+      .view-btn {
+         background-color: #f1f5f9;
+         color: #000;
+         border: none;
+         padding: 6px 10px;
+         border-radius: 8px;
+      }
+
+      .chart-container {
+         border-radius: 12px;
+         padding: 20px;
+         margin-top: 25px;
+      }
+   </style>
+   <style>
+      .card {
+         border-radius: 10px;
+         border: none;
+      }
+
+      .badge {
+         font-size: 0.9rem;
+      }
+
+      .table thead th {}
+
+      .summary-box {
+         border-radius: 8px;
+         padding: 10px 15px;
+         font-size: 0.95rem;
+      }
+
+      .summary-critical {
+         background-color: #fdeaea;
+         color: #dc3545;
+      }
+
+      .summary-moderate {
+         background-color: #fff9db;
+         color: #ffc107;
+      }
+
+      .summary-minor {
+         background-color: #fff2e0;
+         color: #fd7e14;
+      }
+
+      .equal-height-row>div {
+         display: flex;
+         flex-direction: column;
+      }
+
+      .equal-height {
+         flex: 1;
+         display: flex;
+         flex-direction: column;
+      }
+
+      #weeklyDelayTrend {
+         height: 100% !important;
+         min-height: 240px;
+         max-height: 300px;
+      }
+   </style>
+   <style>
+      .report-card {
+         border-radius: 12px;
+         border: none;
+         box-shadow: 0 0 0 rgba(0, 0, 0, 0.1);
+         transition: all 0.3s ease;
+         height: 100%;
+         display: flex;
+         flex-direction: column;
+         justify-content: space-between;
+      }
+
+      .report-card:hover {
+         box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+      }
+
+      .report-card h5 {
+         font-weight: 600;
+      }
+
+      .report-card p {
+         flex-grow: 1;
+      }
+
+      .btn-generate {
+         background-color: rgb(5, 93, 226);
+         color: #fff;
+         border: none;
+      }
+
+      .btn-generate:hover {
+         background-color: rgb(1, 51, 111);
+      }
+   </style>
 </head>
 <!-- body start -->
 
@@ -222,67 +495,67 @@
                   <img src="/../assets/webimages/rahat_logo_2.png" alt="" style="height: 58px; width: 59px;">
                   <h6 style="margin-top: 10px;">राहत आयुक्त कार्यालय उत्तर प्रदेश सरकार</h6>
                </div>
-               <ul id="side-menu">
-                  
-                  <li>
-                     <a href="./DeathPersonInformaiton.html"   class="leftbar-design">
+               <ul id="side-menu"class="nav-menu">
+
+                  <li class="nav-item active">
+                     <a href="./DeathPersonInformaiton.html" class="leftbar-design">
                         <i class="fa-solid fa-house"></i>
                         <span class="span-class-link"> Dashboard <span class="hindi-text">डैशबोर्ड</span></span>
                      </a>
                   </li>
 
-                  <li>
+                  <li class="nav-item ">
                      <a href="./DeathPersonalDashboard/deathform.html" class="leftbar-design">
                         <i class="fa-solid fa-file-lines"></i>
                         <span class="span-class-link"> New Application <span class="hindi-text">नया आवेदन</span></span>
                      </a>
 
                   </li>
-                  <li>
+                  <li class="nav-item ">
                      <a href="./DeathPersonalDashboard/AllApplications.html" class="leftbar-design">
                         <i class="fa-solid fa-user-group"></i>
-                        <span  class="span-class-link">All Applications<span class="hindi-text">सभी आवेदन</span></span>
+                        <span class="span-class-link">All Applications<span class="hindi-text">सभी आवेदन</span></span>
 
                      </a>
 
                   </li>
-                  <li>
+                  <li class="nav-item ">
                      <a href="./DeathPersonalDashboard/PendingReview.html" class="leftbar-design">
                         <i class="fa-solid fa-clock"></i>
-                        <span  class="span-class-link"> Pending Review <span class="hindi-text">समीक्षाधीन</span></span>
+                        <span class="span-class-link"> Pending Review <span class="hindi-text">समीक्षाधीन</span></span>
                      </a>
 
                   </li>
 
 
 
-                  <li>
+                  <li class="nav-item ">
                      <a href="./DeathPersonalDashboard/Approved.html" class="leftbar-design">
                         <i class="fa-solid fa-circle-check"></i>
-                        <span  class="span-class-link"> Approved <span class="hindi-text">अनुमोदित</span></span>
+                        <span class="span-class-link"> Approved <span class="hindi-text">अनुमोदित</span></span>
                      </a>
 
                   </li>
-                  <li>
+                  <li class="nav-item ">
                      <a href="./DeathPersonalDashboard/Delayed.html" class="leftbar-design">
                         <i class="fa-solid fa-triangle-exclamation"></i>
-                        <span  class="span-class-link"> Delays <span class="hindi-text">विलंबित</span></span>
+                        <span class="span-class-link"> Delays <span class="hindi-text">विलंबित</span></span>
                      </a>
                   </li>
-                  <li>
+                  <li class="nav-item ">
                      <a href="#" class="leftbar-design">
                         <i class="fa-solid fa-chart-column"></i>
-                        <span  class="span-class-link"> Reports <span class="hindi-text">रिपोर्ट</span></span>
+                        <span class="span-class-link"> Reports <span class="hindi-text">रिपोर्ट</span></span>
                      </a>
 
                   </li>
-                  <li>
+                  <li class="nav-item ">
                      <a href="#" class="leftbar-design">
                         <i class="fa-solid fa-gear"></i>
-                        <span  class="span-class-link"> Settings <span class="hindi-text">सेटिंग</span></span>
+                        <span class="span-class-link"> Settings <span class="hindi-text">सेटिंग</span></span>
                      </a>
                   </li>
-               </ul> 
+               </ul>
             </div>
             <!-- End Sidebar -->
             <div class="clearfix"></div>
@@ -295,232 +568,373 @@
       <div class="content-page">
          <div class="content">
             <!-- Start Content-->
-            <div class="container">
+            <div class="container my-sm-5 my-lg-0 ">
                <!-- General Form -->
-               <div class="row">
-                  <div class="col-12">
-                     <div class="card" style="margin-top: 20px;">
-                        <div class="py-2 d-flex align-items-sm-center flex-sm-row flex-column px-4"
-                           style="background-color: #dcebf1; border-top-left-radius: 8px; border-top-right-radius: 8px;">
-                           <div class="flex-grow-1">
-                              <h4 class="fs-18 fw-semibold m-0">आपदा से मृत्यु होने की दशा में मृतक के परिवार को देय
-                                 अनुग्रह सहायता</h4>
-                           </div>
-                           <div class="text-end">
-                              <ol class="breadcrumb mt-2  py-0 gap-3">
-                                 <li class="breadcrumb-item "><a href="" class="btn btn-success me-2 btn-custom">नया
-                                       फॉर्म</a></li>
-                                 <li class="breadcrumb-item active"><a href="" class="btn btn-danger btn-custom">वापस
-                                       जाये</a></li>
-                              </ol>
+               
+
+                  <div class="card mt-3">
+                     <div class="py-2 d-flex align-items-sm-center flex-sm-row flex-column px-4"
+                        style="background-color: #dcebf1; border-top-left-radius: 8px; border-top-right-radius: 8px;">
+                        <div class="flex-grow-1">
+                           <h4 class="fs-18 fw-semibold m-0">राहत पोर्टल - मृत्यु रिपोर्टिंग डैशबोर्ड</h4>
+                           <p>Rahat Portal - Death Reporting Dashboard</p>
+                        </div>
+                        <div class="text-end">
+                           <ol class="breadcrumb mt-2  py-0 gap-3">
+                              <li class="breadcrumb-item "><a href="" class="btn btn-primary me-2 btn-custom" style="color: white;">Generate Report</a></li>
+                             
+                           </ol>
+                        </div>
+                     </div>
+
+
+                     <!-- ─────────────  STAT CARDS  ───────────── -->
+                     <div class="row g-3 mb-4 mt-3">
+                        <div class="col-md-3">
+                           <div class="stat-card h-100 card">
+                              <div class="stat-icon"><i class="bi bi-file-earmark-text"></i></div>
+                              <div class="stat-title fw-semibold text-dark">Total Applications</div>
+                              <div class="stat-number">1,247</div>
+                              <div class="stat-hindi">कुल आवेदन</div>
+                              <span class="stat-badge">+12% from last month</span>
                            </div>
                         </div>
-                        <div class="card-body">
-                           <form>
-
-                              <div class="row g-3">
-                                 <div class="position-relative col-lg-6">
-                                    <label for="validationDefault01" class="form-label">लेखपाल का क्षेत्र
-                                       <span><sup>*</sup></span></label>
-                                    <select class="form-select" id="areaSelect" required>
-                                       <option selected disabled value="">चयन करें</option>
-                                       <option value="rural">ग्रामीण</option>
-                                       <option value="urban">शहरी</option>
-                                    </select>
-                                 </div>
-
-                                 <!-- Rural Field -->
-                                 <div id="ruralField" class="position-relative col-lg-6" style="display: none;">
-                                    <label for="validationDefault03" class="form-label">लेखपाल का ग्राम(जहां घटना हुई
-                                       है)<span><sup>*</sup></span></label>
-                                    <input type="text" class="form-control" id="ruralInput" required>
-                                 </div>
-                                 <!-- Urban Field -->
-                                 <div id="urbanField" class="position-relative col-lg-6" style="display: none;">
-                                    <label for="validationDefault04" class="form-label">लेखपाल का ULBL (जहां घटना हुई
-                                       है)<span><sup>*</sup></span></label>
-                                    <select class="form-select" id="urbanSelect" required>
-                                       <option selected disabled value="">चयन करें</option>
-                                       <option>Bakhshi Ka Talab (447)</option>
-                                       <option>Malihabad (445)</option>
-                                    </select>
-                                 </div>
-                                 <div class=" position-relative col-lg-6">
-                                    <label for="validationTooltip01" class="form-label">मृतक का नाम
-                                       <span><sup>*</sup></span></label>
-                                    <input type="text" class="form-control" id="validationTooltip01" value="" required>
-                                 </div>
-                                 <div class=" position-relative col-lg-6">
-                                    <label for="validationTooltip02" class="form-label">मृतक के पिता/पति का नाम</label>
-                                    <input type="text" class="form-control" id="validationTooltip02" value="" required>
-                                 </div>
-
-                                 <div class=" position-relative col-lg-6">
-                                    <label for="validationTooltip03" class="form-label">लिंग चुने
-                                       <span><sup>*</sup></span></label>
-                                    <select class="form-select" id="validationCustom04" required>
-                                       <option selected disabled value="">चयन करें</option>
-                                       <option value="">पुरुष</option>
-                                       <option value="">महिला</option>
-                                       <option value="">अन्य </option>
-                                    </select>
-                                 </div>
-                                 <div class=" position-relative col-lg-6">
-                                    <label for="validationTooltip04" class="form-label">मृत्यु की तिथि
-                                       <span><sup>*</sup></span></label>
-                                    <div class="input-group has-validation">
-                                       <input type="text" class="form-control" id="validationTooltipUsername"
-                                          aria-describedby="validationTooltipUsernamePrepend" required>
-                                    </div>
-                                 </div>
-                                 <div class=" position-relative col-lg-6">
-                                    <label for="validationTooltip05" class="form-label">मृत्यु का समय(00:00 AM|PM) <i
-                                          class="fa-solid fa-info-circle" data-bs-toggle="tooltip"
-                                          data-bs-placement="top" title="संभावित समय भरें"
-                                          style="cursor: pointer;"></i></label>
-                                    <input type="text" class="form-control" id="validationTooltip05" required>
-                                 </div>
-                                 <div class=" position-relative col-lg-6">
-                                    <label for="validationTooltipUsername" class="form-label">आयु <span
-                                          style="color:blue; cursor: pointer;" id="clickableDiv"
-                                          data-bs-toggle="tooltip" data-bs-placement="top" title=""
-                                          style="cursor: pointer;">[मैट्रिक्स देखें]*</span></label>
-                                    <div class="input-group has-validation">
-                                       <input type="text" class="form-control" id="validationTooltipUsername"
-                                          aria-describedby="validationTooltipUsernamePrepend" required>
-                                    </div>
-                                 </div>
-
-                                 <div class=" position-relative col-lg-6">
-                                    <label for="validationTooltip05" class="form-label">मृत्यु का कारण
-                                       <span><sup>*</sup></span></label>
-                                    <input type="text" class="form-control" id="validationTooltip05" required>
-                                 </div>
-                                 <div class="position-relative col-lg-6">
-                                    <label for="validationCustom01" class="form-label">आपदा का प्रकार</label>
-                                    <select class="form-select" id="validationCustom04" required>
-                                       <option selected disabled value="">चयन करें</option>
-                                       <option value="1">Flood(बाढ़)</option>
-                                       <option value="2">Drought(सूखा)</option>
-                                       <option value="3">Fire(अग्निकाण्ड)</option>
-                                       <option value="4">Hailstorm(ओलावृष्टि)</option>
-                                       <option value="5">Earthquake / Tsunami(भूकम्प/सुनामी)</option>
-                                       <option value="6">Cloud Burst(बादल फटना)</option>
-                                       <option value="7">Cold wave / Frost(कोहरा एवं शीतलहरी)</option>
-                                       <option value="8">Cyclone(चक्रवात)</option>
-                                       <option value="9">Landslide(भू-स्खलन)</option>
-                                       <option value="10">Pest Attack(कीट-आक्रमण)</option>
-                                       <option value="12">Unseasonal Rainfall / Heavy Rain(बेमौसम भारी वर्षा /
-                                          अतिवृष्टि)</option>
-                                       <option value="13">Lightening(आकाशीय विद्युत)</option>
-                                       <option value="14">Thunderstorm(आंधी-तूफान)</option>
-                                       <option value="15">Heatwave(लू-प्रकोप)</option>
-                                       <option value="16">Boat Capsize(नाव दुर्घटना)</option>
-                                       <option value="17">Snake Bite(सर्पदंश)</option>
-                                       <option value="18">Sewer Cleaning/ Gas leakage(सीवर सफाई / गैस रिसाव)</option>
-                                       <option value="19">Dropping in Bore well(बोरवेल में गिरना)</option>
-                                       <option value="20">Man Animal Conflict(मानव वन्य जीव द्वन्द (जंगली जानवरों का
-                                          हमला))</option>
-                                       <option value="21">Death due to Drowning(डूबकर होने वाली मृत्यु )</option>
-                                       <option value="22">Hit by Bull &amp; Neelgai (सांड एवं वनरोज (नीलगाय) के आघात से
-                                          होने वाली घटना)</option>
-                                       <option value="23">Covid-19 (50 Lakhs)(कोविड-19 (50 लाख))</option>
-                                       <option value="24">Covid-19 (50 Thousand)(कोविड-19 (50 हजार))</option>
-                                    </select>
-                                 </div>
-
-
-
-                                 <div class="position-relative col-lg-6">
-                                    <label for="validationCustom02" class="form-label">आपदा की तिथि</label>
-                                    <input type="text" class="form-control" id="validationCustom02" value="" required>
-                                 </div>
-                                 <div class="position-relative col-lg-6">
-                                    <label for="validationCustomUsername" class="form-label">राहत मद का प्रकार</label>
-                                    <div class="input-group has-validation">
-                                       <input type="text" class="form-control" value="अहैतुक सहायता"
-                                          id="validationCustomUsername" aria-describedby="inputGroupPrepend" readonly>
-                                    </div>
-                                 </div>
-                                 <div class="position-relative col-lg-6">
-                                    <label for="validationDefault04" class="form-label">क्षति अनुदान का प्रकार</label>
-                                    <select class="form-select" id="validationDefault04" required>
-                                       <option selected disabled value="">चयन करें</option>
-                                       <option>आपदा से मृत्यु (400000.00)</option>
-                                       <option>मानव वन्य जीव द्वन्द (जंगली जानवरों का हमला) से मृत्यु (500000.00)
-                                       </option>
-                                    </select>
-                                 </div>
-                                 <div class="position-relative col-lg-6">
-                                    <label for="validationCustom04" class="form-label">क्षति अनुदान की दर</label>
-                                    <span id=" " class="form-control">400000.00</span>
-                                 </div>
-                              </div>
-
-
-
-
-
-
-
-
-                              <div class="row mt-4">
-                                 <h5 class="mb-4 rounded p-3" style="background-color: bisque;">पता का विवरण भरे</h5>
-                                 <div class=" position-relative col-lg-6">
-                                    <label for="validationTooltip01" class="form-label">क्या उत्तर प्रदेश का निवासी है?
-                                       <span><sup>*</sup></span></label>
-                                    <select class="form-select" id="validationDefault04" required>
-                                       <option selected disabled value="">चयन करें</option>
-                                       <option>Yes (हाँ)</option>
-                                       <option>Yes (अन्य जनपद)</option>
-                                       <option>No (नहीं)</option>
-                                    </select>
-                                 </div>
-                                 <div class=" position-relative col-lg-6">
-                                    <label for="validationTooltip04" class="form-label">पता</label>
-                                    <input type="text" class="form-control" id="validationTooltip05" required>
-                                 </div>
-                                 <div class=" position-relative col-lg-6">
-                                    <label class="form-label">मृतक का फोटो अपलोड करें</label>
-                                    <div class="mb-3">
-                                       <input type="file" class="form-control" aria-label="file example" required>
-                                       <div class="invalid-feedback">Example invalid form file feedback</div>
-                                    </div>
-                                 </div>
-                                 <div class=" position-relative col-lg-6">
-                                    <label class="form-label">पंचनामा रिपोर्ट अपलोड करें</label>
-                                    <div class="mb-3">
-                                       <input type="file" class="form-control" aria-label="file example" required>
-                                       <div class="invalid-feedback">Example invalid form file feedback</div>
-                                    </div>
-                                 </div>
-                                 <div class=" position-relative col-lg-6">
-                                    <label class="form-label">मृतक का पोस्टमार्टम रिपोर्ट अपलोड करें </label>
-                                    <div class="mb-3">
-                                       <input type="file" class="form-control" aria-label="file example" required>
-                                       <div class="invalid-feedback">Example invalid form file feedback</div>
-                                    </div>
-                                 </div>
-
-
-
-
-                              </div>
-                              <div class="col-lg-6 ">
-                                 <button class="btn btn-primary" type="submit" style="text-align: left;">Submit
-                                    form</button>
-                              </div>
-
-
-
-
-
-                           </form>
+                        <div class="col-md-3">
+                           <div class="stat-card h-100 card">
+                              <div class="stat-icon"><i class="bi bi-clock-history"></i></div>
+                              <div class="stat-title fw-semibold text-dark">Pending Applications</div>
+                              <div class="stat-number">156</div>
+                              <div class="stat-hindi">लंबित आवेदन</div>
+                              <span class="stat-badge">Needs attention</span>
+                           </div>
                         </div>
+                        <div class="col-md-3">
+                           <div class="stat-card h-100 card">
+                              <div class="stat-icon"><i class="bi bi-exclamation-diamond"></i></div>
+                              <div class="stat-title fw-semibold text-dark">Delayed Applications</div>
+                              <div class="stat-number text-danger">89</div>
+                              <div class="stat-hindi">विलंबित आवेदन</div>
+                              <span class="stat-badge text-danger">High priority</span>
+                           </div>
+                        </div>
+                        <div class="col-md-3">
+                           <div class="stat-card h-100 card">
+                              <div class="stat-icon"><i class="bi bi-activity"></i></div>
+                              <div class="stat-title fw-semibold text-dark">Avg Processing Time</div>
+                              <div class="stat-number text-primary">12.5 days</div>
+                              <div class="stat-hindi">औसत प्रोसेस समय</div>
+                              <span class="stat-badge text-success">-2.3 days improved</span>
+                           </div>
+                        </div>
+                     </div>
+
+
+                     <!-- ─────────────  TABS  ───────────── -->
+                     <div class="tabs mb-4">
+                        <button class="tab-link active" onclick="switchTab('overview')">Overview</button>
+                        <button class="tab-link" onclick="switchTab('monitoring')">Stage Monitoring</button>
+                        <button class="tab-link" onclick="switchTab('delay')">Delay Analysis</button>
+                        <button class="tab-link" onclick="switchTab('reports')">Reports</button>
+                     </div>
+
+                     <!-- ─────────────  OVERVIEW TAB  ───────────── -->
+                     <div id="overview" class="tab-content">
+                        <div class="row g-3">
+                           <div class="col-md-6">
+                              <div class="chart-card card">
+                                 <h6>Monthly Application Trends<br><span class="text-secondary">मासिक आवेदन
+                                       रुझान</span></h6>
+                                 <canvas id="monthlyTrend"></canvas>
+                              </div>
+                           </div>
+
+                           <div class="col-md-6 ">
+                              <div class="chart-card card">
+                                 <h6>Death Cause Distribution<br><span class="text-secondary">मृत्यु कारण
+                                       वितरण</span></h6>
+                                 <div class="pie-wrapper">
+                                    <canvas id="deathCause"></canvas>
+                                 </div>
+                              </div>
+                           </div>
+
+                           <div class="col-md-6">
+                              <div class="chart-card card">
+                                 <h6>Stage Performance vs&nbsp;Target<br><span class="text-secondary">चरण
+                                       प्रदर्शन बनाम
+                                       लक्ष्य</span></h6>
+                                 <canvas id="stagePerformance"></canvas>
+                              </div>
+                           </div>
+
+                           <div class="col-md-6">
+                              <div class="chart-card card">
+                                 <h6>Daily Delay Breakdown<br><span class="text-secondary">दैनिक विलंब
+                                       विश्लेषण</span></h6>
+                                 <canvas id="dailyDelay"></canvas>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+
+                     <!-- ─────────────  OTHER PLACEHOLDER TABS  ───────────── -->
+                     <div id="monitoring" class="tab-content d-none">
+                        <div class=" px-4 pb-4 text-center">
+                           <div class="container ">
+                              <div class="card p-3">
+                                 <h5 class="fw-semibold">Stage-wise Application Status</h5>
+                                 <p class="text-muted small">चरणवार आवेदन स्थिति - Click on any stage for
+                                    drill-down</p>
+
+                                 <!-- Stage Cards -->
+                                 <div class="stage-card">
+                                    <div class="stage-index">1</div>
+                                    <div class="stage-labels">
+                                       <div class="title">Lekhpal</div>
+                                       <div class="text-muted small">Average: 3.2 days</div>
+                                    </div>
+                                    <div class="status-box pending">
+                                       <div class="value">45</div>
+                                       <div class="label">Pending</div>
+                                    </div>
+                                    <div class="status-box delayed">
+                                       <div class="value">23</div>
+                                       <div class="label">Delayed</div>
+                                    </div>
+                                    <button class="view-btn"><i class="fas fa-eye"></i> View</button>
+                                 </div>
+
+                                 <div class="stage-card">
+                                    <div class="stage-index">2</div>
+                                    <div class="stage-labels">
+                                       <div class="title">SDM</div>
+                                       <div class="text-muted small">Average: 5.1 days</div>
+                                    </div>
+                                    <div class="status-box pending">
+                                       <div class="value">38</div>
+                                       <div class="label">Pending</div>
+                                    </div>
+                                    <div class="status-box delayed">
+                                       <div class="value">19</div>
+                                       <div class="label">Delayed</div>
+                                    </div>
+                                    <button class="view-btn"><i class="fas fa-eye"></i> View</button>
+                                 </div>
+
+                                 <div class="stage-card">
+                                    <div class="stage-index">3</div>
+                                    <div class="stage-labels">
+                                       <div class="title">DM</div>
+                                       <div class="text-muted small">Average: 7.8 days</div>
+                                    </div>
+                                    <div class="status-box pending">
+                                       <div class="value">42</div>
+                                       <div class="label">Pending</div>
+                                    </div>
+                                    <div class="status-box delayed">
+                                       <div class="value">28</div>
+                                       <div class="label">Delayed</div>
+                                    </div>
+                                    <button class="view-btn"><i class="fas fa-eye"></i> View</button>
+                                 </div>
+
+                                 <div class="stage-card">
+                                    <div class="stage-index">4</div>
+                                    <div class="stage-labels">
+                                       <div class="title">Relief Commissioner</div>
+                                       <div class="text-muted small">Average: 4.3 days</div>
+                                    </div>
+                                    <div class="status-box pending">
+                                       <div class="value">31</div>
+                                       <div class="label">Pending</div>
+                                    </div>
+                                    <div class="status-box delayed">
+                                       <div class="value">19</div>
+                                       <div class="label">Delayed</div>
+                                    </div>
+                                    <button class="view-btn"><i class="fas fa-eye"></i> View</button>
+                                 </div>
+                              </div>
+
+                              <!-- Chart Section -->
+
+                              <div class="chart-container mt-4 card p-3">
+                                 <h6 class="fw-semibold">Stage Performance Metrics</h6>
+                                 <p class="text-muted small">चरण प्रदर्शन मैट्रिक्स</p>
+                                 <canvas id="performanceChart" height="120"></canvas>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                     <div id="delay" class="tab-content d-none">
+                        <div class=" p-4 text-center">
+                           <div class="container py-4">
+                              <div class="row g-4 equal-height-row">
+                                 <div class="col-md-6  ">
+                                    <div class="card p-4 equal-height card">
+                                       <h5>Weekly Delay Trends<br><span class="text-muted small">साप्ताहिक
+                                             विलंब रुझान</span>
+                                       </h5>
+                                       <div class="flex-grow-1 d-flex align-items-center">
+                                          <canvas id="weeklyDelayTrend"></canvas>
+                                       </div>
+                                    </div>
+                                 </div>
+                                 <div class="col-md-6  ">
+                                    <div class="card p-4 equal-height">
+                                       <h5>Delay Summary<br><span class="text-muted small">विलंब सारांश</span>
+                                       </h5>
+                                       <div class="mt-3 d-grid gap-2">
+                                          <div
+                                             class="summary-box summary-critical d-flex justify-content-between align-items-center">
+                                             <span>Critical Delays (>15 days)</span>
+                                             <span class="badge bg-danger rounded-pill">23</span>
+                                          </div>
+                                          <div
+                                             class="summary-box summary-moderate d-flex justify-content-between align-items-center">
+                                             <span>Moderate Delays (8-15 days)</span>
+                                             <span class="badge bg-warning text-dark rounded-pill">45</span>
+                                          </div>
+                                          <div
+                                             class="summary-box summary-minor d-flex justify-content-between align-items-center">
+                                             <span>Minor Delays (3-7 days)</span>
+                                             <span class="badge bg-light text-dark rounded-pill">21</span>
+                                          </div>
+                                       </div>
+                                    </div>
+                                 </div>
+                              </div>
+
+                              <div class="card p-4 mt-4">
+                                 <h5>District-wise Delay Analysis<br><span class="text-muted small">जिलावार
+                                       विलंब विश्लेषण</span>
+                                 </h5>
+                                 <div class="table-responsive">
+                                    <table class="table align-middle">
+                                       <thead>
+                                          <tr>
+                                             <th>District</th>
+                                             <th>Total Applications</th>
+                                             <th>Delayed</th>
+                                             <th>Avg Delay (Days)</th>
+                                             <th>Status</th>
+                                             <th>Actions</th>
+                                          </tr>
+                                       </thead>
+                                       <tbody>
+                                          <tr>
+                                             <td>Lucknow</td>
+                                             <td>156</td>
+                                             <td>12</td>
+                                             <td>8.5</td>
+                                             <td><span class="badge bg-light text-dark">Good</span></td>
+                                             <td><button class="btn btn-outline-secondary btn-sm"><i
+                                                      class="bi bi-eye"></i>
+                                                   View</button></td>
+                                          </tr>
+                                          <tr>
+                                             <td>Kanpur</td>
+                                             <td>134</td>
+                                             <td>28</td>
+                                             <td>15.2</td>
+                                             <td><span class="badge bg-danger">Critical</span></td>
+                                             <td><button class="btn btn-outline-secondary btn-sm"><i
+                                                      class="bi bi-eye"></i>
+                                                   View</button></td>
+                                          </tr>
+                                          <tr>
+                                             <td>Agra</td>
+                                             <td>98</td>
+                                             <td>15</td>
+                                             <td>11.3</td>
+                                             <td><span class="badge bg-warning text-dark">Moderate</span></td>
+                                             <td><button class="btn btn-outline-secondary btn-sm"><i
+                                                      class="bi bi-eye"></i>
+                                                   View</button></td>
+                                          </tr>
+                                       </tbody>
+                                    </table>
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                     <div id="reports" class="tab-content d-none">
+
+                        <div class="container pb-5">
+                           <div class="row g-4">
+                              <div class="col-md-4">
+                                 <div class="card report-card p-4">
+                                    <h5 style="    line-height: 1.4;"><i class="bi bi-file-earmark-text me-2"></i>Daily
+                                       Report<br><span class="text-muted small">दैनिक रिपोर्ट</span></h5>
+                                    <p class="small mt-2">Generate comprehensive daily summary of all death
+                                       reporting activities.</p>
+                                    <button class="btn btn-generate mt-3"><i class="bi bi-download me-1"></i>
+                                       Generate Report</button>
+                                 </div>
+                              </div>
+                              <div class="col-md-4">
+                                 <div class="card report-card p-4">
+                                    <h5 style="    line-height: 1.4;"><i class="bi bi-calendar-week me-2"></i>Weekly
+                                       Summary<br><span class="text-muted small">साप्ताहिक सारांश</span></h5>
+                                    <p class="small mt-2">Weekly analysis with stage-wise performance metrics
+                                       and delay trends.</p>
+                                    <button class="btn btn-generate mt-3"><i class="bi bi-download me-1"></i>
+                                       Generate Report</button>
+                                 </div>
+                              </div>
+                              <div class="col-md-4">
+                                 <div class="card report-card p-4">
+                                    <h5 style="    line-height: 1.4;"><i class="bi bi-geo-alt me-2"></i>District
+                                       Report<br><span class="text-muted small">जिला रिपोर्ट</span></h5>
+                                    <p class="small mt-2">District-wise comprehensive analysis of death
+                                       reporting and fund disbursement.</p>
+                                    <button class="btn btn-generate mt-3"><i class="bi bi-download me-1"></i>
+                                       Generate Report</button>
+                                 </div>
+                              </div>
+                              <div class="col-md-4">
+                                 <div class="card report-card p-4">
+                                    <h5 style="    line-height: 1.4;"><i
+                                          class="bi bi-exclamation-triangle me-2"></i>Delay Analysis
+                                       Report<br><span class="text-muted small">विलंब विश्लेषण रिपोर्ट</span>
+                                    </h5>
+                                    <p class="small mt-2">Detailed analysis of delays at each stage with
+                                       recommendations.</p>
+                                    <button class="btn btn-generate mt-3"><i class="bi bi-download me-1"></i>
+                                       Generate Report</button>
+                                 </div>
+                              </div>
+                              <div class="col-md-4">
+                                 <div class="card report-card p-4">
+                                    <h5 style="    line-height: 1.4;"><i class="bi bi-people me-2"></i>Stakeholder
+                                       Performance<br><span class="text-muted small">हितधारक प्रदर्शन</span></h5>
+                                    <p class="small mt-2">Performance analysis of Lekhpal, SDM, DM, and Relief
+                                       Commissioner.</p>
+                                    <button class="btn btn-generate mt-3"><i class="bi bi-download me-1"></i>
+                                       Generate Report</button>
+                                 </div>
+                              </div>
+                              <div class="col-md-4">
+                                 <div class="card report-card p-4">
+                                    <h5 style="    line-height: 1.4;"><i
+                                          class="bi bi-check-circle me-2"></i>Disbursement Report<br><span
+                                          class="text-muted small">वितरण रिपोर्ट</span></h5>
+                                    <p class="small mt-2">Fund disbursement tracking and Digital Signature
+                                       Certificate usage.</p>
+                                    <button class="btn btn-generate mt-3"><i class="bi bi-download me-1"></i>
+                                       Generate Report</button>
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+
                      </div>
                   </div>
 
-               </div>
+
+
+               
             </div>
             <!-- container-fluid -->
          </div>
@@ -538,30 +952,266 @@
    <script src="/assets/libs/waypoints/lib/jquery.waypoints.min.js"></script>
    <script src="/assets/libs/jquery.counterup/jquery.counterup.min.js"></script>
    <script src="/assets/libs/feather-icons/feather.min.js"></script>
+
+   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+   <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2"></script>
+   <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
    <!-- App js-->
    <script src="/assets/js/app.js"></script>
    <script>
-      document.addEventListener("DOMContentLoaded", function () {
-         document.getElementById("areaSelect").addEventListener("change", function () {
-            let selectedValue = this.value;
-            document.getElementById("ruralField").style.display = selectedValue === "rural" ? "block" : "none";
-            document.getElementById("urbanField").style.display = selectedValue === "urban" ? "block" : "none";
-         });
+      /* ----------  TAB SWITCHING ---------- */
+      function switchTab(tabId) {
+         document.querySelectorAll('.tab-link').forEach(btn => btn.classList.remove('active'));
+         document.querySelectorAll('.tab-content').forEach(tab => tab.classList.add('d-none'));
+
+         document.querySelector(`[onclick="switchTab('${tabId}')"]`).classList.add('active');
+         document.getElementById(tabId).classList.remove('d-none');
+      }
+
+      /* ----------  CHART: Monthly Trend ---------- */
+      const monthlyTrendCtx = document.getElementById('monthlyTrend').getContext('2d');
+      new Chart(monthlyTrendCtx, {
+         type: 'line',
+         data: {
+            labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'],
+            datasets: [{
+               label: 'Applications Processed',
+               data: [120, 140, 170, 160, 180, 170],
+               backgroundColor: 'rgba(10,120,3,.4)',
+               borderColor: 'rgba(10,120,3,.8)',
+               fill: true,
+               tension: .4
+            }, {
+               label: 'Applications Submitted',
+               data: [135, 155, 190, 175, 195, 180],
+               backgroundColor: 'rgba(13,110,253,.2)',
+               borderColor: 'rgba(13,110,253,1)',
+               fill: true,
+               tension: .4
+            }]
+         },
+         options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: {
+               legend: {
+                  display: false
+               },
+               tooltip: {
+                  mode: 'index',
+                  intersect: false
+               }
+            },
+            scales: {
+               y: {
+                  beginAtZero: true,
+                  ticks: {
+                     stepSize: 55
+                  }
+               },
+               x: {
+                  grid: {
+                     display: false
+                  }
+               }
+            }
+         }
       });
 
+      /* ----------  CHART: Death Cause (Pie) ---------- */
+      const deathCauseCtx = document.getElementById('deathCause').getContext('2d');
+      new Chart(deathCauseCtx, {
+         type: 'pie',
+         data: {
+            labels: ['बाढ़', 'दुर्घटना', 'आग', 'भूकंप', 'अन्य'],
+            datasets: [{
+               data: [45, 28, 15, 8, 4],
+               backgroundColor: ['#2b7bfa', '#e84141', '#fd8d0c', '#915dd1', '#5f6368'],
+               borderWidth: 1
+            }]
+         },
+         options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            layout: {
+               padding: {
+                  top: 20,
+                  bottom: 20,
+                  left: 20,
+                  right: 20
+               }
+            },
+            plugins: {
+               legend: {
+                  display: false
+               },
+               datalabels: {
+                  color: ctx => ctx.chart.data.datasets[0].backgroundColor[ctx.dataIndex],
+                  anchor: 'end',
+                  align: 'end',
+                  offset: 30,
+                  formatter: (value, ctx) => {
+                     const total = ctx.chart.data.datasets[0].data.reduce((a, b) => a + b, 0);
+                     const pct = ((value / total) * 100).toFixed(0);
+                     return `${ctx.chart.data.labels[ctx.dataIndex]} ${pct}%`;
+                  },
+                  font: {
+                     weight: 'bold',
+                     size: 13
+                  }
+               }
+            }
+         },
+         plugins: [ChartDataLabels]
+      });
+
+      /* ----------  CHART: Stage Performance ---------- */
+      const stagePerfCtx = document.getElementById('stagePerformance').getContext('2d');
+      new Chart(stagePerfCtx, {
+         type: 'bar',
+         data: {
+            labels: ['Lekhpal', 'SDM', 'DM', 'Relief Commissioner'],
+            datasets: [{
+               label: 'Performance',
+               data: [85, 78, 65, 82],
+               backgroundColor: '#0d6efd'
+            }, {
+               type: 'line',
+               label: 'Target',
+               data: [90, 90, 90, 90],
+               borderColor: '#dc3545',
+               borderWidth: 2,
+               fill: false,
+               tension: 0
+            }]
+         },
+         options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: {
+               legend: {
+                  display: false
+               }
+            },
+            scales: {
+               y: {
+                  beginAtZero: true,
+                  ticks: {
+                     stepSize: 20
+                  }
+               }
+            }
+         }
+      });
+
+      /* ----------  CHART: Daily Delay ---------- */
+      const dailyDelayCtx = document.getElementById('dailyDelay').getContext('2d');
+      new Chart(dailyDelayCtx, {
+         type: 'bar',
+         data: {
+            labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
+            datasets: [{
+               label: 'Minor',
+               data: [8, 9, 7, 10, 6, 5, 4],
+               backgroundColor: '#dc3545'
+            }, {
+               label: 'Moderate',
+               data: [10, 12, 11, 13, 9, 6, 5],
+               backgroundColor: '#ffc107'
+            }, {
+               label: 'Major',
+               data: [9, 10, 9, 12, 7, 5, 4],
+               backgroundColor: '#0d6efd'
+            }]
+         },
+         options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: {
+               legend: {
+                  position: 'bottom'
+               }
+            },
+            scales: {
+               y: {
+                  beginAtZero: true
+               }
+            }
+         }
+      });
    </script>
    <script>
-      document.addEventListener("DOMContentLoaded", function () {
-         let matrixTitle = "नोट-आयु मैट्रिक्स (आयु दर्ज करने के बाद 1 या 2 दशमलव स्थानों के साथ माह की प्रविष्टि करें)\n" +
-            "0.1 => 1 माह | 0.2 => 2 माह | 0.3 => 3 माह | 0.4 => 4 माह | 0.5 => 5 माह | 0.6 => 6 माह\n" +
-            "0.7 => 7 माह | 0.8 => 8 माह | 0.9 => 9 माह | 0.10 => 10 माह | 0.11 => 11 माह";
-
-         let tooltipElement = document.getElementById("clickableDiv");
-         tooltipElement.setAttribute("title", matrixTitle);
-
-         var tooltip = new bootstrap.Tooltip(tooltipElement, {
-            customClass: "custom-tooltip", // Apply custom styling
-         });
+      const ctx = document.getElementById('performanceChart').getContext('2d');
+      new Chart(ctx, {
+         type: 'bar',
+         data: {
+            labels: ['Lekhpal', 'SDM', 'DM', 'Relief Commissioner'],
+            datasets: [{
+               label: 'Pending',
+               data: [45, 38, 42, 31],
+               backgroundColor: '#f6c23e'
+            },
+            {
+               label: 'Delayed',
+               data: [23, 19, 28, 19],
+               backgroundColor: '#e74a3b'
+            }
+            ]
+         },
+         options: {
+            responsive: true,
+            scales: {
+               y: {
+                  beginAtZero: true,
+                  ticks: {
+                     precision: 0
+                  }
+               }
+            },
+            plugins: {
+               legend: {
+                  position: 'top'
+               }
+            }
+         }
+      });
+   </script>
+   <script>
+      const ctx1 = document.getElementById('weeklyDelayTrend').getContext('2d');
+      new Chart(ctx1, {
+         type: 'line',
+         data: {
+            labels: ['Week 1', 'Week 2', 'Week 3', 'Week 4', 'Week 5', 'Week 6'],
+            datasets: [{
+               label: 'Delays',
+               data: [13, 19, 17, 22, 20, 27],
+               borderColor: '#dc3545',
+               backgroundColor: 'rgba(220,53,69,0.1)',
+               tension: 0.4,
+               fill: true,
+               pointRadius: 4,
+               pointBackgroundColor: '#dc3545',
+               pointBorderColor: '#fff',
+               pointHoverRadius: 6
+            }]
+         },
+         options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: {
+               legend: {
+                  display: false
+               }
+            },
+            scales: {
+               y: {
+                  beginAtZero: true,
+                  ticks: {
+                     stepSize: 7
+                  }
+               }
+            }
+         }
       });
    </script>
 </body>

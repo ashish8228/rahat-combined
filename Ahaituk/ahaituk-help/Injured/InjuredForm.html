@@ -338,10 +338,10 @@
                 <div class="container my-sm-5 my-lg-0 ">
                     <div class="designforform shadow-sm mt-3">
                         <h2 class=" text-center">
-                            <b>मृत्यु रिपोर्टिंग फॉर्म</b><br />
-                            <small class="text-muted">Death Reporting Form</small>
+                            <b>घायल व्यक्ति के लिए फॉर्म</b><br />
+                            <small class="text-muted">Form for injured person</small>
                         </h2>
-                        <h3 class="text-center mb-4">राहत आयुक्त कार्यालय के लिए मृत्यु की रिपोर्ट करने हेतु फॉर्म भरें
+                        <h3 class="text-center mb-4">राहत आयुक्त कार्यालय के लिए घायल व्यक्ति के लिए फॉर्म भरें
                         </h3>
                         <form>
                             <!-- Basic Information -->
@@ -360,7 +360,7 @@
                                         </div>
                                         <div class="col-md-6">
                                             <label for="deceasedName" class="form-label">
-                                                <b>Name of Deceased</b> / मृतक का नाम *
+                                                <b>Name of injured person</b> / घायल व्यक्ति का नाम *
                                             </label>
                                             <input type="text" class="form-control" id="deceasedName"
                                                 placeholder="Enter deceased name" required />
@@ -421,7 +421,7 @@
                                                 required />
                                         </div>
                                         <div class="card-header">
-                                            <h4><b>Death Details / मृत्यु का विवरण</b></h4>
+                                            <h4><b>Injured Person Details / घायल व्यक्ति के चोट का विवरण</b></h4>
                                         </div>
                                         <div class="col-md-6">
                                             <label for="causeOfDeath" class="form-label">
@@ -498,111 +498,8 @@
                                                         <b>No</b> / नहीं
                                                     </label>
                                                 </div>
-                                                <div class="form-check form-check-inline">
-                                                    <input class="form-check-input" type="radio" name="resident"
-                                                        id="resother" value="other" />
-                                                    <label class="form-check-label" for="resother">
-                                                        <b>other districts
-                                                        </b> / अन्य जनपद
-                                                    </label>
-                                                </div>
                                             </div>
                                         </div>
-                                        <div class="col-md-6 yes-belong other-belong">
-                                            <label for="belong" class="form-label">
-                                                <b>Village/City</b> / ग्राम/ शहर चुनें ? *
-                                            </label>
-                                            <select class="form-select" id="belong" required>
-                                                <option value="">चयन करे</option>
-                                                <option>urban/शहरी</option>
-                                                <option>Rural/ग्रामीण</option>
-                                            </select>
-                                        </div>
-                                        <div class="col-md-6 yes-belong other-belong">
-                                            <label for="tehsil" class="form-label ">
-                                                <b>Tehsil</b> तहसील *
-                                            </label>
-                                            <select class="form-select" id="tehsil" required>
-                                                <option value="">तहसील का चयन करें</option>
-                                                <option>Bakshi Ka Talab/बख्शी का तालाब</option>
-                                                <option>Lucknow/लखनऊ</option>
-                                                <option>Malihabad/मलिहाबाद</option>
-                                                <option>Mohanlalganj/मोहनलालगंज</option>
-                                                <option>Sarojini Nagar/सरोजनी नगर</option>
-                                            </select>
-                                        </div>
-                                        <div class="col-md-6 yes-belong other-belong">
-                                            <label for="village" class="form-label">
-                                                <b>Village</b> / ग्राम *
-                                            </label>
-                                            <select class="form-select" id="village" required>
-                                                <option value="">चयन करे</option>
-
-                                            </select>
-                                        </div>
-                                        <div class="col-md-6 yes-belong other-belong">
-                                            <label for="block" class="form-label">
-                                                <b>Block</b> / ब्लाक *
-                                            </label>
-                                            <select class="form-select" id="block" required>
-                                                <option value="">चयन करे</option>
-
-                                            </select>
-                                        </div>
-                                        <div class="col-md-6 other-belong">
-                                            <label for="block" class="form-label">
-                                                <b>District</b> /जनपद*
-                                            </label>
-                                            <select class="form-select" id="block" required>
-                                                <option value="">चयन करे</option>
-                                                <option value="146">Agra</option>
-                                                <option value="143">Aligarh</option>
-                                                <option value="178">AMBEDKAR NAGAR</option>
-                                                <option value="203">Amethi</option>
-                                                <option value="137">Amroha</option>
-                                            </select>
-                                        </div>
-                                        <div class="col-md-6 no-belong">
-                                            <label for="block" class="form-label">
-                                                <b>Select State</b> / राज्य चुने*
-                                            </label>
-                                            <select class="form-select" id="block" required>
-                                                <option value="">चयन करे</option>
-                                                <option value="">Up</option>
-                                                <option value="">Andaman</option>
-                                            </select>
-                                        </div>
-                                        <div class="col-md-6 no-belong">
-                                            <label for="janpad" class="form-label">
-                                                <b>Fill district</b> / जनपद भरे*
-                                            </label>
-                                            <input type="text" class="form-control" id="janpad"
-                                                placeholder="Enter tehsil/taluka" required>
-                                        </div>
-
-                                        <div class="col-md-6 no-belong">
-                                            <label for="block" class="form-label">
-                                                <b>Fill tehsil/taluka</b> / तहसील/तालुका भरे*
-                                            </label>
-                                            <input type="text" class="form-control" id="tehsil"
-                                                placeholder="Enter tehsil/taluka" required>
-                                        </div>
-                                        <div class="col-md-6 no-belong">
-                                            <label for="block" class="form-label">
-                                                <b>Fill village</b> / ग्राम भरे*
-                                            </label>
-                                            <input type="text" class="form-control" id="tehsil"
-                                                placeholder="Enter village" required>
-                                        </div>
-
-                                        <div class="col-md-6 no-belong">
-                                            <label for="block" class="form-label">
-                                                <b>Fill Block</b> / ब्लाक भरे *
-                                            </label>
-                                            <input type="text" class="form-control" id="tehsil"
-                                                placeholder="Enter Block" required>
-                                        </div>
-
                                         <div class="col-12">
                                             <label for="address" class="form-label">
                                                 <b>Address</b> / पता
@@ -614,9 +511,9 @@
                                         <div class="card-header">
                                             <h4><b>Document Uploads / दस्तावेज़ अपलोड</b></h4>
                                         </div>
-                                        <div class="col-md-4">
+                                        <div class="col-md-6">
                                             <label for="photo" class="form-label">
-                                                <b>Upload photo of the deceased</b> / मृतक का फोटो अपलोड करें
+                                                <b>Upload photo of the Injured person</b> / घायल व्यक्ति की फोटो अपलोड करें
                                             </label>
                                             <div class="btn btn-light w-100 d-flex align-items-center justify-content-center gap-2 p-4 dropbox-btn"
                                                 onclick="document.getElementById('photo').click();">
@@ -627,9 +524,9 @@
                                         </div>
 
 
-                                        <div class="col-md-4">
+                                        <div class="col-md-6">
                                             <label for="panchanama" class="form-label">
-                                                <b>Upload Panchnama report</b> / पंचनामा रिपोर्ट अपलोड करें
+                                                <b>Upload hospital certificate</b> / अस्पताल प्रमाण-पत्र अपलोड करें
                                             </label>
                                             <div class="btn btn-light w-100 d-flex align-items-center justify-content-center gap-2 p-4 dropbox-btn"
                                                 onclick="document.getElementById('photo').click();">
@@ -638,17 +535,7 @@
                                             <input class="form-control d-none" type="file" id="photo"
                                                 accept="image/*,.pdf" />
                                         </div>
-                                        <div class="col-md-4">
-                                            <label for="postmortem" class="form-label">
-                                                <b>Upload post mortem report</b> / पोस्टमार्टम रिपोर्ट अपलोड करें
-                                            </label>
-                                            <div class="btn btn-light w-100 d-flex align-items-center justify-content-center gap-2 p-4 dropbox-btn"
-                                                onclick="document.getElementById('photo').click();">
-                                                <i class="fa-solid fa-file-lines fa-lg"></i>Click to upload Document
-                                            </div>
-                                            <input class="form-control d-none" type="file" id="photo"
-                                                accept="image/*,.pdf" />
-                                        </div>
+                                        
                                     </div>
                                 </div>
                             </div>
@@ -696,34 +583,6 @@
     <!-- Widgets Init Js -->
     <!-- App js-->
     <script src="assets/js/app.js"></script>
-    <script>
-        const mapping = {
-            resYes: '.yes-belong',
-            resNo: '.no-belong',
-            resother: '.other-belong'
-        };
-
-        function toggleGroups() {
-            // hide all
-            Object.values(mapping).forEach(sel => {
-                document.querySelectorAll(sel)
-                    .forEach(el => el.style.display = 'none');
-            });
-
-            // find checked radio
-            const checked = document.querySelector('input[name="resident"]:checked');
-            if (!checked) return;
-
-            const selector = mapping[checked.id];
-            document.querySelectorAll(selector)
-                .forEach(el => el.style.display = 'block');
-        }
-
-        // init & listen
-        document.querySelectorAll('input[name="resident"]')
-            .forEach(r => r.addEventListener('change', toggleGroups));
-        window.addEventListener('DOMContentLoaded', toggleGroups);
-    </script>
 
 </body>
 
